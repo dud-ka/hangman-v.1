@@ -18,7 +18,6 @@ var randomWord = words[Math.floor(Math.random()*words.length)];
 var answer = [];
 
 for (var i=0; i < randomWord.length; i++) {
-	// answer += ' _ '; //alt. version
 	answer[i] = "_";
 }
 
@@ -28,7 +27,7 @@ var otherLetters = randomWord.length;
 while (otherLetters > 0) {
 	//show result
 	alert(answer.join(" "));
-	//pobież dane od gracza
+	//ask a player
 	var shot = prompt("Enter one letter or click cancel to end the game");
 	if (shot === null) {
 		break;
