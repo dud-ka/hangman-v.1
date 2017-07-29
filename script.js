@@ -45,3 +45,4 @@ while (otherLetters > 0) {
 }
 // === END MAIN LOOP ===
 
+alert("Good job, " + randomWord + " is a word you're looking for!");
