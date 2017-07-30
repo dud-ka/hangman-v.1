@@ -14,16 +14,16 @@ var words = [
 
 // === RANDOM WORD STUFF ===
 var randomWord = words[Math.floor(Math.random()*words.length)];
-
 var answer = [];
-
 for (var i=0; i < randomWord.length; i++) {
 	answer[i] = "_";
 }
+var remainingLetters = randomWord.length;
+var remainingShots = 5;
 
-var otherLetters = randomWord.length;
+
 // === MAIN LOOP ===
-while (otherLetters > 0) {
+while (remainingLetters > 0 && remainingShots > 0) {
 	//show result
 	alert(answer.join(" "));
 	//ask a player
@@ -33,19 +33,25 @@ while (otherLetters > 0) {
 	} else if (shot > 0 && shot < 9999999) {
 		alert("Not numbers!");
 	} else if (shot.length > 1){
-		alert("Please, enter only one letter");
+		alert("Please, enter only ONE letter");
 	} else if (shot.length == 0) {
 		alert("You don't enter any letter");
 	} else {
 		shot = shot.toLowerCase();
+		remainingShots--;
 		for (var j = 0; j < randomWord.length; j++) {
 			if (randomWord[j] === shot) {
 				answer[j] = shot;
-				otherLetters--;
+				remainingLetters--;
 			}
 		}
 	}
 }
 // === END MAIN LOOP ===
 
-alert("Good job, " + randomWord + " is a word you're looking for!");
+//END GAME
+if (remainingShots > 0) {
+    alert("Good job, " + randomWord + " is a word you're looking for!");
+} else {
+    alert("GAME OVER! The answer was: " + randomWord + ".");
+}
