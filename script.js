@@ -1,15 +1,15 @@
 // === WORDS DATABASE ===
 var words = [
-"keyboard",
-"computer",
-"mouse",
-"bugs",
-"application",
-"mailbox",
-"printer",
-"software",
-"website",
-"button"
+"keyboard"//,
+// "computer",
+// "mouse",
+// "bugs",
+// "application",
+// "mailbox",
+// "printer",
+// "software",
+// "website",
+// "button"
 ];
 
 // === RANDOM WORD STUFF ===
@@ -22,7 +22,6 @@ for (var i=0; i < randomWord.length; i++) {
 }
 
 var otherLetters = randomWord.length;
-
 // === MAIN LOOP ===
 while (otherLetters > 0) {
 	//show result
@@ -31,9 +30,14 @@ while (otherLetters > 0) {
 	var shot = prompt("Enter one letter or click cancel to end the game");
 	if (shot === null) {
 		break;
-	} else if (shot.length !== 1){
+	} else if (shot > 0 && shot < 9999999) {
+		alert("Not numbers!");
+	} else if (shot.length > 1){
 		alert("Please, enter only one letter");
+	} else if (shot.length == 0) {
+		alert("You don't enter any letter");
 	} else {
+		shot = shot.toLowerCase();
 		for (var j = 0; j < randomWord.length; j++) {
 			if (randomWord[j] === shot) {
 				answer[j] = shot;
